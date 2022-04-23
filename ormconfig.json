@@ -1,0 +1,10 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "leeway",
+  "password": "password",
+  "database": "leeway",
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "synchronize": true
+}
