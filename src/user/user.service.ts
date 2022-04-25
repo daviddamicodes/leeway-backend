@@ -40,6 +40,10 @@ export class UserService {
     return await this.userRepository.save(newUser);
   }
 
+  async findById(id: string): Promise<UserEntity> {
+    return this.userRepository.findOne({ where: { id } });
+  }
+
   async loginUser(loginDto: LoginDto): Promise<UserEntity> {
     const user = await this.userRepository.findOne({
       where: { username: loginDto.username },
@@ -55,6 +59,7 @@ export class UserService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
+    delete user.password;
     return user;
   }
 
